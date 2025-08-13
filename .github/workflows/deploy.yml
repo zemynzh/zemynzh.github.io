@@ -35,8 +35,19 @@ jobs:
 
       - name: Create necessary directories and files
         run: |
-          # 创建目录
+          # 创建所有必要的目录
           mkdir -p .intlayer/dictionary
+          mkdir -p .intlayer/main
+          mkdir -p .intlayer/cache
+          mkdir -p .intlayer/config
+          mkdir -p .intlayer/types
+          
+          # 创建 dictionaries.cjs 文件
+          cat > .intlayer/main/dictionaries.cjs << 'EOL'
+          module.exports = {
+            "app": require("../dictionary/app.json")
+          };
+          EOL
           
           # 创建 app.json 文件
           cat > .intlayer/dictionary/app.json << 'EOL'
@@ -65,15 +76,35 @@ jobs:
           }
           EOL
           
+          # 创建 configuration.json 文件
+          cat > .intlayer/config/configuration.json << 'EOL'
+          {
+            "internationalization": {
+              "locales": ["zh-Hans", "en", "ja"],
+              "defaultLocale": "zh-Hans"
+            }
+          }
+          EOL
+          
           # 设置文件权限
+          chmod 644 .intlayer/main/dictionaries.cjs
           chmod 644 .intlayer/dictionary/app.json
+          chmod 644 .intlayer/config/configuration.json
           
           # 显示创建的文件
           echo "Created files:"
+          ls -la .intlayer/main/
           ls -la .intlayer/dictionary/
+          ls -la .intlayer/config/
+          
+          echo "Content of dictionaries.cjs:"
+          cat .intlayer/main/dictionaries.cjs
           
           echo "Content of app.json:"
           cat .intlayer/dictionary/app.json
+          
+          echo "Content of configuration.json:"
+          cat .intlayer/config/configuration.json
 
       - name: Build project
         run: |
