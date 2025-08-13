@@ -77,6 +77,8 @@ jobs:
 
       - name: Build project
         run: |
+          echo "Starting intlayer build..."
+          npm run intlayer:build
           echo "Starting project build..."
           NODE_ENV=production VITE_APP_ENV=production npm run build
           echo "Checking build output:"
