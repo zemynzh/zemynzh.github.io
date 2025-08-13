@@ -36,9 +36,7 @@ jobs:
       - name: Create necessary directories and files
         run: |
           # 创建目录
-          mkdir -p .intlayer/main
           mkdir -p .intlayer/dictionary
-          mkdir -p src/locales
           
           # 创建 app.json 文件
           cat > .intlayer/dictionary/app.json << 'EOL'
@@ -67,68 +65,15 @@ jobs:
           }
           EOL
           
-          # 创建 dictionaries.cjs 文件
-          cat > .intlayer/main/dictionaries.cjs << 'EOL'
-          'use strict';
-          const path = require('path');
-          const app = require(path.resolve(__dirname, '../dictionary/app.json'));
-          module.exports = { app };
-          EOL
-          
-          # 创建 dictionaries.mjs 文件
-          cat > .intlayer/main/dictionaries.mjs << 'EOL'
-          import { fileURLToPath } from 'url';
-          import { dirname, resolve } from 'path';
-          import app from '../dictionary/app.json' assert { type: 'json' };
-          export default { app };
-          EOL
-          
-          # 创建其他必要的文件
-          cat > .intlayer/main/dynamic_dictionaries.cjs << 'EOL'
-          'use strict';
-          module.exports = {};
-          EOL
-          
-          cat > .intlayer/main/dynamic_dictionaries.mjs << 'EOL'
-          export default {};
-          EOL
-          
-          cat > .intlayer/main/unmerged_dictionaries.cjs << 'EOL'
-          'use strict';
-          module.exports = {};
-          EOL
-          
-          cat > .intlayer/main/unmerged_dictionaries.mjs << 'EOL'
-          export default {};
-          EOL
-
           # 设置文件权限
           chmod 644 .intlayer/dictionary/app.json
-          chmod 644 .intlayer/main/*.{cjs,mjs}
           
-          # 创建符号链接
-          ln -sf $(pwd)/.intlayer/dictionary/app.json $(pwd)/src/locales/app.json
-
           # 显示创建的文件
           echo "Created files:"
-          ls -la .intlayer/main/
           ls -la .intlayer/dictionary/
-          ls -la src/locales/
-          
-          echo "Content of dictionaries.cjs:"
-          cat .intlayer/main/dictionaries.cjs
           
           echo "Content of app.json:"
           cat .intlayer/dictionary/app.json
-
-      - name: Build Intlayer configuration
-        run: |
-          echo "Running Intlayer build..."
-          NODE_ENV=production npm run intlayer:build
-          echo "Checking generated files:"
-          ls -la .intlayer/
-          ls -la .intlayer/main/
-          ls -la .intlayer/dictionary/
 
       - name: Build project
         run: |
