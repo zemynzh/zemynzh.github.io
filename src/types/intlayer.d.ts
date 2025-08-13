@@ -2,6 +2,29 @@
 import { Locales } from 'intlayer';
 import _T4xpsgnuAr7CQdme1u8S from './..\..\.intlayer\types\app.ts';
 
+declare module '@intlayer/dictionary' {
+  interface TranslationNode {
+    nodeType: 'translation';
+    translation: {
+      'zh-Hans': string;
+      en: string;
+      ja: string;
+    };
+  }
+
+  type ContentNode = {
+    [key: string]: ContentNode | TranslationNode;
+  }
+
+  interface Dictionary {
+    key: string;
+    content: ContentNode;
+  }
+
+  const dictionary: Dictionary;
+  export default dictionary;
+}
+
 declare module 'intlayer' {
   interface IntlayerDictionaryTypesConnector {
     "app": typeof _T4xpsgnuAr7CQdme1u8S;
