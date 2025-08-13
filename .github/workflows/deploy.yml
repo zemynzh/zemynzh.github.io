@@ -33,83 +33,83 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Create necessary directories and files
+      - name: Setup Intlayer
         run: |
-          # 创建所有必要的目录
+          # 创建必要的目录
           mkdir -p .intlayer/dictionary
           mkdir -p .intlayer/main
           mkdir -p .intlayer/cache
           mkdir -p .intlayer/config
           mkdir -p .intlayer/types
+          mkdir -p src/locales
           
-          # 创建 dictionaries.cjs 文件
-          cat > .intlayer/main/dictionaries.cjs << 'EOL'
-          module.exports = {
-            "app": require("../dictionary/app.json")
-          };
-          EOL
-          
-          # 创建 app.json 文件
-          cat > .intlayer/dictionary/app.json << 'EOL'
-          {
-            "key": "app",
-            "content": {
-              "nav": {
-                "home": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "首页",
-                    "en": "Home",
-                    "ja": "ホーム"
-                  }
+          # 创建基础翻译文件
+          cat > src/locales/app.content.ts << 'EOL'
+          export default {
+            nav: {
+              home: {
+                "zh-Hans": "首页",
+                "en": "Home",
+                "ja": "ホーム"
+              },
+              articles: {
+                "zh-Hans": "文章",
+                "en": "Articles",
+                "ja": "記事"
+              }
+            },
+            articles: {
+              loading: {
+                "zh-Hans": "加载中...",
+                "en": "Loading...",
+                "ja": "読み込み中..."
+              },
+              noResults: {
+                title: {
+                  "zh-Hans": "文章未找到",
+                  "en": "Article Not Found",
+                  "ja": "記事が見つかりません"
                 },
-                "articles": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "文章",
-                    "en": "Articles",
-                    "ja": "記事"
-                  }
+                description: {
+                  "zh-Hans": "请求的文章不存在",
+                  "en": "The requested article does not exist",
+                  "ja": "リクエストされた記事は存在しません"
                 }
               }
             }
-          }
+          };
           EOL
           
-          # 创建 configuration.json 文件
-          cat > .intlayer/config/configuration.json << 'EOL'
-          {
-            "internationalization": {
-              "locales": ["zh-Hans", "en", "ja"],
-              "defaultLocale": "zh-Hans"
-            }
-          }
+          # 创建虚拟模块
+          cat > src/utils/intlayerVirtual.ts << 'EOL'
+          import translations from '../locales/app.content';
+          
+          export const appDictionary = {
+            key: "app",
+            content: translations
+          };
+          
+          export default appDictionary;
           EOL
           
-          # 设置文件权限
-          chmod 644 .intlayer/main/dictionaries.cjs
-          chmod 644 .intlayer/dictionary/app.json
-          chmod 644 .intlayer/config/configuration.json
+          # 修改组件中的导入
+          sed -i 's|import { useIntlayer } from '\''react-intlayer'\''|import { appDictionary } from '\''../utils/intlayerVirtual'\''\nimport { useIntlayer } from '\''react-intlayer'\''|g' src/components/ArticleDetail.tsx
+          
+          echo "Intlayer setup completed"
           
           # 显示创建的文件
-          echo "Created files:"
-          ls -la .intlayer/main/
-          ls -la .intlayer/dictionary/
-          ls -la .intlayer/config/
+          echo "Created files structure:"
+          ls -R .intlayer/
+          ls -R src/locales/
           
-          echo "Content of dictionaries.cjs:"
-          cat .intlayer/main/dictionaries.cjs
+          echo "Content of app.content.ts:"
+          cat src/locales/app.content.ts
           
-          echo "Content of app.json:"
-          cat .intlayer/dictionary/app.json
-          
-          echo "Content of configuration.json:"
-          cat .intlayer/config/configuration.json
+          echo "Content of intlayerVirtual.ts:"
+          cat src/utils/intlayerVirtual.ts
 
       - name: Build project
         run: |
-          echo "Starting intlayer build..."
-          npm run intlayer:build
           echo "Starting project build..."
           NODE_ENV=production VITE_APP_ENV=production npm run build
           echo "Checking build output:"
