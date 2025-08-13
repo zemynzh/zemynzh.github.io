@@ -1,5 +1,5 @@
-const _IigCpHsBzxDsGDj77hR1 = require('../dynamic_dictionary/app.cjs');
+const _mK9RJqcQfbReR1JoJ5Ie = require('../dynamic_dictionary/app.cjs');
 
 module.exports = {
-  "app": _IigCpHsBzxDsGDj77hR1
+  "app": _mK9RJqcQfbReR1JoJ5Ie
 };
