@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { intlayerPlugin } from 'vite-intlayer'
+import path from 'path'
 
 export default defineConfig({
   plugins: [
@@ -8,6 +9,12 @@ export default defineConfig({
     intlayerPlugin()
   ],
   base: '/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@intlayer': path.resolve(__dirname, './.intlayer')
+    }
+  },
   server: {
     port: 3000,
     open: true
@@ -26,6 +33,6 @@ export default defineConfig({
       }
     }
   },
-  // 将Markdown文件作为原始文本处理
-  assetsInclude: ['**/*.md']
-}) 
+  // 将Markdown文件和JSON文件作为原始文本处理
+  assetsInclude: ['**/*.md', '**/*.json']
+}); 

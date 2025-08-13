@@ -35,12 +35,14 @@ jobs:
 
       - name: Create necessary directories and files
         run: |
+          # 创建目录
           mkdir -p .intlayer/main
           mkdir -p .intlayer/dictionary
           mkdir -p src/locales
           
           # 创建 app.json 文件
-          echo '{
+          cat > .intlayer/dictionary/app.json << 'EOL'
+          {
             "key": "app",
             "content": {
               "nav": {
@@ -59,90 +61,54 @@ jobs:
                     "en": "Articles",
                     "ja": "記事"
                   }
-                },
-                "tags": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "标签",
-                    "en": "Tags",
-                    "ja": "タグ"
-                  }
-                },
-                "about": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "关于",
-                    "en": "About",
-                    "ja": "私について"
-                  }
-                },
-                "contact": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "联系",
-                    "en": "Contact",
-                    "ja": "お問い合わせ"
-                  }
-                }
-              },
-              "search": {
-                "placeholder": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "搜索文章、标签或内容...",
-                    "en": "Search articles, tags, or content...",
-                    "ja": "記事、タグ、コンテンツを検索..."
-                  }
-                }
-              },
-              "language": {
-                "chinese": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "中文",
-                    "en": "Chinese",
-                    "ja": "中国語"
-                  }
-                },
-                "english": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "英文",
-                    "en": "English",
-                    "ja": "英語"
-                  }
-                },
-                "japanese": {
-                  "nodeType": "translation",
-                  "translation": {
-                    "zh-Hans": "日文",
-                    "en": "Japanese",
-                    "ja": "日本語"
-                  }
                 }
               }
             }
-          }' > .intlayer/dictionary/app.json
+          }
+          EOL
           
           # 创建 dictionaries.cjs 文件
-          echo "'use strict';
+          cat > .intlayer/main/dictionaries.cjs << 'EOL'
+          'use strict';
           const app = require('../dictionary/app.json');
-          module.exports = { app };" > .intlayer/main/dictionaries.cjs
+          module.exports = { app };
+          EOL
           
           # 创建 dictionaries.mjs 文件
-          echo "import app from '../dictionary/app.json';
-          export default { app };" > .intlayer/main/dictionaries.mjs
+          cat > .intlayer/main/dictionaries.mjs << 'EOL'
+          import app from '../dictionary/app.json' assert { type: 'json' };
+          export default { app };
+          EOL
           
           # 创建其他必要的文件
-          echo "'use strict';
-          module.exports = {};" > .intlayer/main/dynamic_dictionaries.cjs
+          cat > .intlayer/main/dynamic_dictionaries.cjs << 'EOL'
+          'use strict';
+          module.exports = {};
+          EOL
           
-          echo "export default {};" > .intlayer/main/dynamic_dictionaries.mjs
+          cat > .intlayer/main/dynamic_dictionaries.mjs << 'EOL'
+          export default {};
+          EOL
           
-          echo "'use strict';
-          module.exports = {};" > .intlayer/main/unmerged_dictionaries.cjs
+          cat > .intlayer/main/unmerged_dictionaries.cjs << 'EOL'
+          'use strict';
+          module.exports = {};
+          EOL
           
-          echo "export default {};" > .intlayer/main/unmerged_dictionaries.mjs
+          cat > .intlayer/main/unmerged_dictionaries.mjs << 'EOL'
+          export default {};
+          EOL
+
+          # 显示创建的文件
+          echo "Created files:"
+          ls -la .intlayer/main/
+          ls -la .intlayer/dictionary/
+          
+          echo "Content of dictionaries.cjs:"
+          cat .intlayer/main/dictionaries.cjs
+          
+          echo "Content of app.json:"
+          cat .intlayer/dictionary/app.json
 
       - name: Build Intlayer configuration
         run: |
@@ -152,8 +118,6 @@ jobs:
           ls -la .intlayer/
           ls -la .intlayer/main/
           ls -la .intlayer/dictionary/
-          echo "Content of dictionaries.cjs:"
-          cat .intlayer/main/dictionaries.cjs
 
       - name: Build project
         run: |
