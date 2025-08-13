@@ -20,7 +20,7 @@ const config: IntlayerConfig = {
     watch: false,
     baseDir: ".",
     dictionaryOutput: ["intlayer"],
-    dictionariesDir: "src/locales",
+    dictionariesDir: ".intlayer/dictionary",
     moduleAugmentationDir: "src/types",
   },
 

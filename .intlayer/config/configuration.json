@@ -1,21 +1,15 @@
 {
   "internationalization": {
     "locales": [
-      "zh-Hans",
-      "en",
-      "ja"
+      "en"
     ],
-    "requiredLocales": [
-      "zh-Hans",
-      "en",
-      "ja"
-    ],
+    "requiredLocales": [],
     "strictMode": "inclusive",
-    "defaultLocale": "zh-Hans"
+    "defaultLocale": "en"
   },
   "middleware": {
     "headerName": "x-intlayer-locale",
-    "cookieName": "intlayer-locale",
+    "cookieName": "INTLAYER_LOCALE",
     "prefixDefault": false,
     "basePath": "",
     "serverSetCookie": "always",
@@ -25,9 +19,16 @@
   "content": {
     "fileExtensions": [
       ".content.ts",
-      ".content.tsx"
+      ".content.js",
+      ".content.cjs",
+      ".content.cjx",
+      ".content.mjs",
+      ".content.mjx",
+      ".content.json",
+      ".content.tsx",
+      ".content.jsx"
     ],
-    "baseDir": ".",
+    "baseDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog",
     "excludedPath": [
       "node_modules",
       ".intlayer",
@@ -38,37 +39,51 @@
     ],
     "watch": false,
     "contentDir": [
-      "src"
+      "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog"
     ],
-    "dictionariesDir": "src\\locales",
-    "moduleAugmentationDir": "src\\types",
+    "dictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\dictionary",
+    "moduleAugmentationDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\types",
     "dictionaryOutput": [
       "intlayer"
     ],
-    "unmergedDictionariesDir": ".intlayer\\unmerged_dictionary",
-    "dynamicDictionariesDir": ".intlayer\\dynamic_dictionary",
-    "i18nextResourcesDir": "i18next_resources",
-    "reactIntlMessagesDir": "intl_messages",
-    "typesDir": ".intlayer\\types",
-    "mainDir": ".intlayer\\main",
-    "configDir": ".intlayer\\config",
+    "unmergedDictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\unmerged_dictionary",
+    "dynamicDictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\dynamic_dictionary",
+    "i18nextResourcesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\i18next_resources",
+    "reactIntlMessagesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\intl_messages",
+    "typesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\types",
+    "mainDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\main",
+    "configDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\config",
     "watchedFilesPattern": [
       "/**/*.content.ts",
-      "/**/*.content.tsx"
+      "/**/*.content.js",
+      "/**/*.content.cjs",
+      "/**/*.content.cjx",
+      "/**/*.content.mjs",
+      "/**/*.content.mjx",
+      "/**/*.content.json",
+      "/**/*.content.tsx",
+      "/**/*.content.jsx"
     ],
     "watchedFilesPatternWithPath": [
-      "src/**/*.content.ts",
-      "src/**/*.content.tsx"
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.ts",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.js",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.cjs",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.cjx",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.mjs",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.mjx",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.json",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.tsx",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/**/*.content.jsx"
     ],
-    "outputFilesPatternWithPath": "src/locales/**/*.json"
+    "outputFilesPatternWithPath": "C:/Users/zzm/Documents/zzm/zemynzhlog/.intlayer/dictionary/**/*.json"
   },
   "editor": {
     "applicationURL": "",
-    "editorURL": "",
-    "cmsURL": "",
-    "backendURL": "",
+    "editorURL": "http://localhost:8000",
+    "cmsURL": "https://intlayer.org",
+    "backendURL": "https://back.intlayer.org",
     "port": 8000,
-    "enabled": false,
+    "enabled": true,
     "dictionaryPriorityStrategy": "local_first",
     "hotReload": false
   },
@@ -76,18 +91,13 @@
     "mode": "default",
     "prefix": "\u001b[90m[intlayer] \u001b[0m"
   },
-  "ai": {
-    "provider": "none",
-    "apiKey": "",
-    "applicationContext": ""
-  },
+  "ai": {},
   "build": {
-    "optimize": true,
+    "optimize": false,
     "importMode": "static",
     "traversePattern": [
-      "src/**/*.{ts,tsx}",
-      "!**/node_modules/**",
-      "!**/*.d.ts"
+      "**/*.{js,ts,mjs,cjs,jsx,tsx,mjx,cjx,vue,svelte,svte}",
+      "!**/node_modules/**"
     ]
   }
 }

@@ -1,5 +1,5 @@
-const _569lBNd3vqxxnDn1Gaw2 = require('../../src/locales/app.json');
+const _0ugAzGgsFRhW3HqpbPt9 = require('../dictionary/app.json');
 
 module.exports = {
-  "app": _569lBNd3vqxxnDn1Gaw2
+  "app": _0ugAzGgsFRhW3HqpbPt9
 };
