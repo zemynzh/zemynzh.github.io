@@ -8,13 +8,13 @@ declare module '@intlayer/dictionary' {
     };
   }
 
-  interface Content {
-    [key: string]: Content | Translation;
+  interface ContentObject {
+    [key: string]: ContentObject | Translation;
   }
 
   interface Dictionary {
     key: string;
-    content: Content;
+    content: ContentObject;
   }
 
   const dictionary: Dictionary;
