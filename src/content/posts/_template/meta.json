@@ -1,0 +1,12 @@
+{
+  "id": "your-article-id",
+  "title": "文章标题",
+  "excerpt": "文章摘要，简短描述文章的主要内容...",
+  "date": "2025-08-13",
+  "tags": ["技术", "编程"],
+  "readTime": "5 分钟",
+  "author": "zemynzh",
+  "category": "技术分享",
+  "featured": false,
+  "slug": "your-article-slug"
+} 

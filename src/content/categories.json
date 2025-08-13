@@ -1,0 +1,58 @@
+[
+  {
+    "id": "frontend-development",
+    "name": "前端开发",
+    "description": "前端技术相关文章",
+    "icon": "🎨",
+    "color": "from-blue-500 to-blue-600"
+  },
+  {
+    "id": "backend-development",
+    "name": "后端开发",
+    "description": "后端技术相关文章",
+    "icon": "⚙️",
+    "color": "from-green-500 to-green-600"
+  },
+  {
+    "id": "programming-languages",
+    "name": "编程语言",
+    "description": "编程语言特性和技巧",
+    "icon": "💻",
+    "color": "from-purple-500 to-purple-600"
+  },
+  {
+    "id": "architecture-design",
+    "name": "架构设计",
+    "description": "软件架构和设计模式",
+    "icon": "🏗️",
+    "color": "from-gray-500 to-gray-600"
+  },
+  {
+    "id": "database",
+    "name": "数据库",
+    "description": "数据库技术和优化",
+    "icon": "🗄️",
+    "color": "from-orange-500 to-orange-600"
+  },
+  {
+    "id": "devops",
+    "name": "DevOps",
+    "description": "开发和运维相关",
+    "icon": "🚀",
+    "color": "from-red-500 to-red-600"
+  },
+  {
+    "id": "mobile-development",
+    "name": "移动开发",
+    "description": "移动应用开发技术",
+    "icon": "📱",
+    "color": "from-pink-500 to-pink-600"
+  },
+  {
+    "id": "ai-ml",
+    "name": "人工智能",
+    "description": "机器学习和AI技术",
+    "icon": "🤖",
+    "color": "from-indigo-500 to-indigo-600"
+  }
+]

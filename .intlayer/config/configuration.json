@@ -1,0 +1,92 @@
+{
+  "internationalization": {
+    "locales": [
+      "zh-Hans",
+      "en",
+      "ja"
+    ],
+    "requiredLocales": [
+      "zh-Hans",
+      "en",
+      "ja"
+    ],
+    "strictMode": "inclusive",
+    "defaultLocale": "zh-Hans"
+  },
+  "middleware": {
+    "headerName": "x-intlayer-locale",
+    "cookieName": "intlayer-locale",
+    "prefixDefault": false,
+    "basePath": "",
+    "serverSetCookie": "always",
+    "noPrefix": false,
+    "detectLocaleOnPrefetchNoPrefix": false
+  },
+  "content": {
+    "fileExtensions": [
+      ".content.ts",
+      ".content.tsx"
+    ],
+    "baseDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog",
+    "excludedPath": [
+      "node_modules",
+      ".intlayer",
+      ".next",
+      ".nuxt",
+      ".expo",
+      "dist"
+    ],
+    "watch": true,
+    "contentDir": [
+      "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\src"
+    ],
+    "dictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\dictionaries",
+    "moduleAugmentationDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\types",
+    "dictionaryOutput": [
+      "intlayer"
+    ],
+    "unmergedDictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\unmerged_dictionary",
+    "dynamicDictionariesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\dynamic_dictionary",
+    "i18nextResourcesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\i18next_resources",
+    "reactIntlMessagesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\intl_messages",
+    "typesDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\types",
+    "mainDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\main",
+    "configDir": "C:\\Users\\zzm\\Documents\\zzm\\zemynzhlog\\.intlayer\\config",
+    "watchedFilesPattern": [
+      "/**/*.content.ts",
+      "/**/*.content.tsx"
+    ],
+    "watchedFilesPatternWithPath": [
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/src/**/*.content.ts",
+      "C:/Users/zzm/Documents/zzm/zemynzhlog/src/**/*.content.tsx"
+    ],
+    "outputFilesPatternWithPath": "C:/Users/zzm/Documents/zzm/zemynzhlog/.intlayer/dictionaries/**/*.json"
+  },
+  "editor": {
+    "applicationURL": "http://localhost:5173",
+    "editorURL": "http://localhost:8000",
+    "cmsURL": "https://intlayer.org",
+    "backendURL": "https://back.intlayer.org",
+    "port": 8000,
+    "enabled": true,
+    "dictionaryPriorityStrategy": "local_first",
+    "hotReload": false
+  },
+  "log": {
+    "mode": "default",
+    "prefix": "\u001b[90m[intlayer] \u001b[0m"
+  },
+  "ai": {
+    "provider": "openai",
+    "applicationContext": "这是一个多语言博客应用，支持中文、英文和日文。内容应该保持专业、友好的语调。"
+  },
+  "build": {
+    "optimize": false,
+    "importMode": "dynamic",
+    "traversePattern": [
+      "src/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/*.d.ts"
+    ]
+  }
+}

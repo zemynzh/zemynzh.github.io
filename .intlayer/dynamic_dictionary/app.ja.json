@@ -1,0 +1,194 @@
+{
+  "key": "app",
+  "content": {
+    "nav": {
+      "home": "ホーム",
+      "articles": "記事",
+      "tags": "タグ",
+      "about": "私について",
+      "contact": "お問い合わせ"
+    },
+    "search": {
+      "placeholder": "記事、タグ、コンテンツを検索...",
+      "button": "検索"
+    },
+    "profile": {
+      "avatar": "プロフィールアバター",
+      "settings": "設定"
+    },
+    "language": {
+      "chinese": "中国語",
+      "english": "英語",
+      "japanese": "日本語",
+      "languageLabel": "言語"
+    },
+    "mobile": {
+      "menu": "メニュー",
+      "close": "閉じる"
+    },
+    "tags": {
+      "title": "タグ",
+      "subtitle": "すべての記事タグを探索し、興味のあるコンテンツを見つけましょう",
+      "searchPlaceholder": "タグを検索...",
+      "loading": "タグを読み込み中...",
+      "articlesCount": "記事",
+      "tagLabel": "タグ：",
+      "foundArticles": "タグ「{tag}」に関連する{count}記事が見つかりました：",
+      "statistics": {
+        "title": "タグ統計",
+        "totalTags": "総タグ数",
+        "totalArticles": "総記事数",
+        "averageArticlesPerTag": "タグあたりの平均記事数"
+      },
+      "viewAllArticles": "すべての記事を見る",
+      "errors": {
+        "loadDataFailed": "データの読み込みに失敗しました",
+        "loadTagArticlesFailed": "タグ記事の読み込みに失敗しました"
+      }
+    },
+    "title": "Zemyn - あなたのクリエイティブライティングプラットフォーム",
+    "hero": {
+      "title": "ようこそ",
+      "subtitle": "強力で視覚的に美しい個人ブログサイト、技術と生活の細かな部分を共有します",
+      "cta": "読み始める",
+      "learnMore": "もっと詳しく"
+    },
+    "latestPosts": {
+      "title": "最新の投稿",
+      "subtitle": "最新の技術的洞察とプログラミングの経験を共有し、技術的な道で継続的に向上するのを支援します",
+      "loading": "最新記事を読み込み中...",
+      "readMore": "続きを読む",
+      "viewMoreArticles": "さらに記事を見る"
+    },
+    "articles": {
+      "title": "記事センター",
+      "subtitle": "最先端技術を探求し、プログラミングの洞察を共有し、技術的成長の旅をサポートします",
+      "all": "すべて",
+      "search": {
+        "placeholder": "記事のタイトル、内容、またはタグを検索..."
+      },
+      "filters": {
+        "category": "カテゴリー",
+        "tag": "タグ",
+        "allCategories": "すべてのカテゴリー",
+        "allTags": "すべてのタグ"
+      },
+      "viewAllTags": "すべてのタグを見る",
+      "list": {
+        "title": "記事リスト",
+        "totalCount": "合計 {count} 記事"
+      },
+      "loading": "記事を読み込み中...",
+      "noResults": {
+        "title": "関連記事が見つかりません",
+        "description": "検索条件やフィルターを調整してみてください"
+      },
+      "article": {
+        "readTime": "分で読了",
+        "readFull": "全文を読む →"
+      },
+      "pagination": {
+        "previous": "前へ",
+        "next": "次へ"
+      }
+    },
+    "about": {
+      "title": "私について",
+      "subtitle": "4年生、技術を愛し、革新を追求し、優れたユーザー体験の創造に取り組んでいます",
+      "personalInfo": {
+        "title": "自己紹介",
+        "description": "私は卒業を控えた4年生で、ソフトウェア開発に情熱と好奇心を持っています。1年生の時からプログラミングに触れ、独学と実践プロジェクトを通じて技術力を向上させてきました。",
+        "description2": "フルスタック開発が特に好きで、フロントエンドからバックエンドまでの完全な開発プロセスを楽しんでいます。WeChatミニプログラム開発では、豊富な実践経験があり、複数の完全に機能するミニプログラムプロジェクトを独立して開発してきました。",
+        "description3": "技術が世界を変えると信じており、継続的な学習の力も信じています。技術の道のりでは、常にオープンで謙虚な態度を保ち、新しい技術を試すことをいとわず、学習経験を共有することも楽しんでいます。"
+      },
+      "skills": {
+        "title": "技術スキル",
+        "description": "継続的な学習とプロジェクト実践を通じて、以下の技術分野で豊富な経験を積んできました"
+      },
+      "interests": {
+        "title": "技術的興味と追求",
+        "description": "技術そのもの以外に、技術を使って実際の問題を解決し、価値を創造する方法により注目しています",
+        "fullStack": {
+          "title": "フルスタック開発",
+          "description": "フロントエンドからバックエンドまでの完全な開発プロセスに情熱を持ち、アイデアを製品に変換するプロセスを楽しんでいます"
+        },
+        "mobileDev": {
+          "title": "モバイル開発",
+          "description": "WeChatミニプログラム開発に情熱を持ち、モバイルの新しい技術とユーザー体験の探索を楽しんでいます"
+        },
+        "performance": {
+          "title": "パフォーマンス最適化",
+          "description": "コード品質とアプリケーションパフォーマンスを追求し、様々な最適化技術とベストプラクティスの研究を楽しんでいます"
+        },
+        "openSource": {
+          "title": "オープンソース貢献",
+          "description": "オープンソースコミュニティに積極的に参加し、技術的洞察を共有し、世界中の開発者から学んでいます"
+        },
+        "learning": {
+          "title": "継続的学習",
+          "description": "新しい技術への感度を保ち、実践プロジェクトを通じて技術力を継続的に向上させています"
+        },
+        "innovation": {
+          "title": "革新的思考",
+          "description": "技術的解決策について考えることを楽しみ、異なる技術スタックを組み合わせて新しい可能性を創造しようとしています"
+        }
+      },
+      "cta": {
+        "title": "あなたとの交流を楽しみにしています",
+        "description": "私の技術的能力に興味がある場合、またはプロジェクト協力や技術交換について話し合いたい場合は、いつでもお気軽にお問い合わせください。学習経験を共有することを楽しみにしており、あなたからもっと学ぶことを楽しみにしています。",
+        "button": "お問い合わせ"
+      }
+    },
+    "footer": {
+      "copyright": "© 2024 Zemyn。全著作権所有。React + Vite + Tailwind CSS で構築。",
+      "madeWith": "細部まで丁寧にデザインし、心を込めて制作",
+      "description": "技術と生活の美しさを共有することに専念する、強力で視覚的に美しい個人ブログサイト。",
+      "quickNav": "クイックナビゲーション",
+      "contactUs": "お問い合わせ"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "subtitle": "プロジェクト、技術、または興味深いトピックについて一緒に話し合いましょう",
+      "form": {
+        "title": "メッセージボード",
+        "name": "お名前",
+        "namePlaceholder": "お名前を入力してください",
+        "email": "メールアドレス",
+        "emailPlaceholder": "メールアドレスを入力してください",
+        "subject": "件名",
+        "subjectPlaceholder": "件名を選択してください",
+        "subjectOptions": {
+          "project": "プロジェクト協力",
+          "consultation": "技術相談",
+          "partnership": "ビジネスパートナーシップ",
+          "other": "その他"
+        },
+        "message": "メッセージ内容",
+        "messagePlaceholder": "ご要望やご質問を詳しく説明してください...",
+        "submit": "メッセージを送信",
+        "sending": "送信中...",
+        "successMessage": "メッセージが正常に送信されました！できるだけ早く返信いたします。",
+        "errorMessage": "送信に失敗しました。後でもう一度お試しください。"
+      },
+      "info": {
+        "title": "連絡先情報"
+      },
+      "methods": {
+        "email": {
+          "title": "メールアドレス"
+        },
+        "phone": {
+          "title": "電話番号"
+        },
+        "location": {
+          "title": "GitHub"
+        }
+      },
+      "additional": {
+        "title": "返信時間",
+        "description": "通常24時間以内にメッセージに返信いたします。緊急のご要望がございましたら、お電話でご連絡ください。"
+      }
+    }
+  },
+  "locale": "ja"
+}

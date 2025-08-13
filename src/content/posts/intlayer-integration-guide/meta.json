@@ -1,0 +1,12 @@
+{
+  "id": "intlayer-integration-guide",
+  "title": "Zemyn博客项目中的Intlayer国际化集成详解",
+  "excerpt": "本文详细介绍了Zemyn博客项目如何集成和使用Intlayer来实现多语言国际化功能，包括配置、组件集成、构建部署等各个方面。",
+  "date": "2025-08-13",
+  "tags": ["技术", "编程", "国际化", "Intlayer", "React", "TypeScript"],
+  "readTime": "15 分钟",
+  "author": "zemynzh",
+  "category": "技术分享",
+  "featured": true,
+  "slug": "intlayer-integration-guide"
+} 

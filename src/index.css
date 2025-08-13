@@ -1,0 +1,77 @@
+/* 引入中文字体 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-apple-dark bg-white;
+    font-family: 'Noto Sans SC', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* 确保中文字符正确显示 */
+  * {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-apple-blue hover:bg-apple-blue-dark text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-apple-blue text-apple-blue hover:bg-apple-blue hover:text-white font-medium py-3 px-6 rounded-full transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20;
+  }
+
+  /* 导航栏样式 */
+  .nav-link {
+    @apply text-gray-700 hover:text-apple-blue transition-all duration-200 font-medium relative;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-apple-blue transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .mobile-nav-link {
+    @apply block py-3 px-4 text-gray-700 hover:text-apple-blue hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium;
+  }
+
+  /* 搜索框样式 */
+  .search-input {
+    @apply w-full px-4 py-3 pl-12 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all duration-200;
+  }
+
+  /* 语言切换器样式 */
+  .lang-btn {
+    @apply px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200;
+  }
+
+  .lang-btn-active {
+    @apply bg-apple-blue text-white shadow-md;
+  }
+
+  .lang-btn-inactive {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-apple-blue to-purple-600 bg-clip-text text-transparent;
+  }
+} 

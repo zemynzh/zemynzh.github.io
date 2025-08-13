@@ -1,0 +1,80 @@
+[
+  {
+    "id": "react",
+    "name": "React",
+    "color": "from-blue-500 to-blue-600",
+    "description": "React 相关技术文章"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "color": "from-blue-600 to-blue-700",
+    "description": "TypeScript 类型系统和高级特性"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "color": "from-yellow-500 to-yellow-600",
+    "description": "JavaScript 语言特性和最佳实践"
+  },
+  {
+    "id": "css",
+    "name": "CSS",
+    "color": "from-pink-500 to-pink-600",
+    "description": "CSS 布局和样式技巧"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "color": "from-green-500 to-green-600",
+    "description": "Node.js 后端开发"
+  },
+  {
+    "id": "frontend",
+    "name": "前端",
+    "color": "from-purple-500 to-purple-600",
+    "description": "前端开发技术"
+  },
+  {
+    "id": "backend",
+    "name": "后端",
+    "color": "from-indigo-500 to-indigo-600",
+    "description": "后端开发技术"
+  },
+  {
+    "id": "architecture",
+    "name": "架构",
+    "color": "from-gray-500 to-gray-600",
+    "description": "软件架构设计"
+  },
+  {
+    "id": "performance",
+    "name": "性能优化",
+    "color": "from-orange-500 to-orange-600",
+    "description": "性能优化技巧"
+  },
+  {
+    "id": "api",
+    "name": "API",
+    "color": "from-teal-500 to-teal-600",
+    "description": "API 设计和开发"
+  },
+  {
+    "id": "programming",
+    "name": "编程",
+    "color": "from-red-500 to-red-600",
+    "description": "编程语言和概念"
+  },
+  {
+    "id": "typesystem",
+    "name": "类型系统",
+    "color": "from-emerald-500 to-emerald-600",
+    "description": "类型系统相关"
+  },
+  {
+    "id": "layout",
+    "name": "布局",
+    "color": "from-rose-500 to-rose-600",
+    "description": "页面布局技术"
+  }
+]
