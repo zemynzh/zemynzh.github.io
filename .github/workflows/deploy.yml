@@ -33,21 +33,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Debug directory structure
+      - name: Debug directory structure before build
         run: |
           pwd
-          ls -la
-          ls -la .intlayer || true
           echo "Current working directory: $PWD"
+          echo "Directory structure:"
+          ls -la
+          echo "src directory:"
+          ls -la src/
+          echo "src/locales directory:"
+          mkdir -p src/locales
+          ls -la src/locales/
+          echo ".intlayer directory (if exists):"
+          ls -la .intlayer || true
 
       - name: Build Intlayer configuration
         run: |
+          echo "Running Intlayer build..."
           npm run intlayer:build
-          ls -la .intlayer/config || true
-          cat .intlayer/config/configuration.json || true
+          echo "Checking generated files:"
+          ls -la src/locales/
+          ls -la .intlayer/ || true
+          echo "Content of src/locales:"
+          find src/locales -type f -exec echo {} \; -exec cat {} \;
 
       - name: Build project
-        run: npm run build
+        run: |
+          echo "Starting project build..."
+          npm run build
+          echo "Checking build output:"
+          ls -la dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
