@@ -33,6 +33,11 @@ export default defineConfig({
       }
     }
   },
-  // 将Markdown文件和JSON文件作为原始文本处理
-  assetsInclude: ['**/*.md', '**/*.json']
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    exclude: ['intlayer', 'react-intlayer']
+  },
+  json: {
+    stringify: true
+  }
 }); 
