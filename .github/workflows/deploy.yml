@@ -33,34 +33,34 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Debug directory structure before build
+      - name: Create necessary directories
         run: |
-          pwd
-          echo "Current working directory: $PWD"
-          echo "Directory structure:"
-          ls -la
-          echo "src directory:"
-          ls -la src/
-          echo "src/locales directory:"
+          mkdir -p .intlayer/main
+          mkdir -p .intlayer/dictionary
           mkdir -p src/locales
-          ls -la src/locales/
-          echo ".intlayer directory (if exists):"
-          ls -la .intlayer || true
+
+      - name: Copy Intlayer files
+        run: |
+          cp -r .intlayer/* .intlayer/ || true
+          ls -la .intlayer/
 
       - name: Build Intlayer configuration
         run: |
           echo "Running Intlayer build..."
-          npm run intlayer:build
+          NODE_ENV=production npm run intlayer:build
           echo "Checking generated files:"
+          ls -la .intlayer/
           ls -la src/locales/
-          ls -la .intlayer/ || true
-          echo "Content of src/locales:"
-          find src/locales -type f -exec echo {} \; -exec cat {} \;
+
+      - name: Copy dictionary files
+        run: |
+          cp -r src/locales/* .intlayer/dictionary/ || true
+          ls -la .intlayer/dictionary/
 
       - name: Build project
         run: |
           echo "Starting project build..."
-          npm run build
+          NODE_ENV=production npm run build
           echo "Checking build output:"
           ls -la dist/
 
