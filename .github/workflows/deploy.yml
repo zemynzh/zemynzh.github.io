@@ -33,8 +33,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug directory structure
+        run: |
+          pwd
+          ls -la
+          ls -la .intlayer || true
+          echo "Current working directory: $PWD"
+
       - name: Build Intlayer configuration
-        run: npm run intlayer:build
+        run: |
+          npm run intlayer:build
+          ls -la .intlayer/config || true
+          cat .intlayer/config/configuration.json || true
 
       - name: Build project
         run: npm run build

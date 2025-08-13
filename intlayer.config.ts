@@ -1,4 +1,5 @@
 import { Locales, type IntlayerConfig } from "intlayer";
+import path from 'path';
 
 const config: IntlayerConfig = {
   // 国际化配置
@@ -16,8 +17,8 @@ const config: IntlayerConfig = {
   content: {
     contentDir: ["src"], // 内容文件目录
     fileExtensions: [".content.ts", ".content.tsx"], // 内容文件扩展名
-    watch: process.env.NODE_ENV === "development", // 开发模式下监视文件变化
-    baseDir: process.cwd(), // 项目根目录
+    watch: false, // 禁用文件监视以提高构建性能
+    baseDir: ".", // 使用相对路径
     dictionaryOutput: ["intlayer"], // 输出类型
     dictionariesDir: ".intlayer/dictionaries", // 词典输出目录
     moduleAugmentationDir: ".intlayer/types", // 类型增强目录
@@ -33,21 +34,21 @@ const config: IntlayerConfig = {
     detectLocaleOnPrefetchNoPrefix: false, // 预取时不检测区域设置
   },
 
-  // 编辑器配置
+  // 编辑器配置（生产环境禁用）
   editor: {
-    applicationURL: process.env.INTLAYER_EDITOR_URL || "http://localhost:5173", // Vite 默认端口
-    port: 8000, // 编辑器服务器端口
-    editorURL: "http://localhost:8000", // 编辑器服务器 URL
-    cmsURL: "https://intlayer.org", // Intlayer CMS URL
-    backendURL: "https://back.intlayer.org", // 后端服务器 URL
-    enabled: process.env.NODE_ENV !== "production", // 生产环境禁用编辑器
-    hotReload: false, // 热重载（仅企业版支持）
+    enabled: false,
+    port: 8000,
+    applicationURL: "",
+    editorURL: "",
+    cmsURL: "",
+    backendURL: "",
+    hotReload: false,
   },
 
   // 构建配置
   build: {
-    optimize: process.env.NODE_ENV === "production", // 生产环境启用优化
-    importMode: "dynamic", // 使用 Suspense 动态导入词典
+    optimize: true, // 始终启用优化
+    importMode: "static", // 使用静态导入以提高性能
     traversePattern: [
       "src/**/*.{ts,tsx}",
       "!**/node_modules/**",
@@ -55,11 +56,11 @@ const config: IntlayerConfig = {
     ], // 优化期间遍历的文件模式
   },
 
-  // AI 配置（可选，用于自动翻译）
+  // AI 配置（禁用）
   ai: {
-    provider: "openai", // AI 提供商
-    apiKey: process.env.OPENAI_API_KEY, // API 密钥
-    applicationContext: "这是一个多语言博客应用，支持中文、英文和日文。内容应该保持专业、友好的语调。",
+    provider: "none",
+    apiKey: "",
+    applicationContext: "",
   },
 };
 
