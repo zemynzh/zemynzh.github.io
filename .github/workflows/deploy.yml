@@ -33,16 +33,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Create necessary directories
+      - name: Create necessary directories and files
         run: |
           mkdir -p .intlayer/main
           mkdir -p .intlayer/dictionary
           mkdir -p src/locales
-
-      - name: Copy Intlayer files
-        run: |
-          cp -r .intlayer/* .intlayer/ || true
-          ls -la .intlayer/
+          
+          # 创建初始的 dictionaries.cjs 文件
+          echo "'use strict';
+          const dictionaries = {};
+          module.exports = dictionaries;" > .intlayer/main/dictionaries.cjs
+          
+          # 创建初始的 dictionaries.mjs 文件
+          echo "const dictionaries = {};
+          export default dictionaries;" > .intlayer/main/dictionaries.mjs
 
       - name: Build Intlayer configuration
         run: |
@@ -50,7 +54,8 @@ jobs:
           NODE_ENV=production npm run intlayer:build
           echo "Checking generated files:"
           ls -la .intlayer/
-          ls -la src/locales/
+          ls -la .intlayer/main/
+          cat .intlayer/main/dictionaries.cjs || true
 
       - name: Copy dictionary files
         run: |
